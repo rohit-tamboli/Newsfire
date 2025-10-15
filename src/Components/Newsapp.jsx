@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Card from "./Card";
 import "./Newsapp.css";
-import Footer from "./footer";
+import Footer from "./Footer";
 
 const Newsapp = () => {
   const [search, setSearch] = useState("india");
