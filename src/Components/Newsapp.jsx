@@ -8,7 +8,7 @@ const Newsapp = () => {
   const [newsData, setNewsData] = useState(null);
 
   // Use environment variable for API key (you should set it up in your deployment environment)
-  const API_KEY =  "cabea7c017e1400d8990e6adf991f493";  // Replace with your API key
+  const API_KEY =  "b321a719af3a4fe8a17be3cf662fe3f7";  // Replace with your API key
 
   // Function to fetch data from the News API
   const getData = async () => {
