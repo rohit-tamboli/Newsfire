@@ -8,7 +8,9 @@ const Newsapp = () => {
   const [newsData, setNewsData] = useState(null);
 
   // Use environment variable for API key (you should set it up in your deployment environment)
-  const API_KEY =  "b321a719af3a4fe8a17be3cf662fe3f7";  // Replace with your API key
+  const API_KEY = import.meta.env.VITE_SECRET;
+  console.log("Serect", import.meta.env.VITE_SECRET);
+  // console.log("API_KEY:", API_KEY);
 
   // Function to fetch data from the News API
   const getData = async () => {
@@ -17,7 +19,7 @@ const Newsapp = () => {
       const response = await fetch(
         `https://newsapi.org/v2/everything?q=${search}&apiKey=${API_KEY}`
       );
-      
+
       // Check if the response is valid
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
@@ -38,7 +40,7 @@ const Newsapp = () => {
     } catch (error) {
       // Handle fetch errors
       console.error("Error fetching news data:", error);
-      setNewsData([]);  // Set to empty array in case of error
+      setNewsData([]); // Set to empty array in case of error
     }
   };
 
@@ -50,12 +52,12 @@ const Newsapp = () => {
   // Handle input change to update the search query
   const handleInput = (e) => {
     console.log(e.target.value);
-    setSearch(e.target.value);  // Update search state with input value
+    setSearch(e.target.value); // Update search state with input value
   };
 
   // Use this function to update search based on button click (category buttons)
   const useInput = (category) => {
-    setSearch(category);  // Update the search state with the selected category
+    setSearch(category); // Update the search state with the selected category
   };
 
   return (
